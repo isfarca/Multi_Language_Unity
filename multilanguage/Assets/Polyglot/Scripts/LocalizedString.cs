@@ -28,11 +28,11 @@ namespace Polyglot
 			{
 				if (parameters != null && parameters.Count > 0)
 				{
-					return Localization.GetFormat(key, parameters.ToArray());
+					return MultiLanguage.GetFormat(key, parameters.ToArray());
 				}
 				else
 				{
-					return Localization.Get(key);
+					return MultiLanguage.Get(key);
 				}
 			}
 		}

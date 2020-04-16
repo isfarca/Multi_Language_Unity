@@ -1,7 +1,4 @@
-﻿namespace Polyglot
-{
-    public interface ILocalize
+﻿public interface ILocalize
     {
         void OnLocalize();
     }
-}

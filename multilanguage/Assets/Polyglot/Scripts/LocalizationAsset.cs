@@ -1,8 +1,7 @@
 using System;
+using Polyglot;
 using UnityEngine;
 
-namespace Polyglot
-{
     [Serializable]
     public class LocalizationAsset
     {
@@ -24,4 +23,3 @@ namespace Polyglot
             set { format = value; }
         }
     }
-}

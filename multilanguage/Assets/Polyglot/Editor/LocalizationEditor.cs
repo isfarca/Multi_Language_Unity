@@ -2,14 +2,10 @@ using System;
 using UnityEditor;
 using UnityEngine;
 using System.IO;
-using UnityEngine.Networking;
 
-namespace Polyglot
-{
-    [CustomEditor(typeof(Localization))]
+[CustomEditor(typeof(MultiLanguage))]
     public class LocalizationInspector : Editor
     {
-
         private const string PathPrefs = "polyglotpath";
         private const string DefaultPolyglotPath = "Assets/Polyglot/Localization/PolyglotGameDev - Master.txt";
 
@@ -43,10 +39,10 @@ namespace Polyglot
         [MenuItem(MenuItemPath + "Configurate", false, 0)]
         public static void Configurate()
         {
-            var asset = Resources.Load<Localization>(LocalizationAssetName);
+            var asset = Resources.Load<MultiLanguage>(LocalizationAssetName);
             if (asset == null)
             {
-                asset = CreateInstance<Localization>();
+                asset = CreateInstance<MultiLanguage>();
                 var assetPathAndName = AssetDatabase.GenerateUniqueAssetPath (LocalizationAssetPath);
                 AssetDatabase.CreateAsset(asset, assetPathAndName);
             }
@@ -85,9 +81,9 @@ namespace Polyglot
         private static void DeletePath(string key, int index)
         {
             var defaultPath = string.Empty;
-            if (Localization.Instance.InputFiles.Count > index)
+            if (MultiLanguage.Instance.InputFiles.Count > index)
             {
-                defaultPath = AssetDatabase.GetAssetPath(Localization.Instance.InputFiles[index].TextAsset);
+                defaultPath = AssetDatabase.GetAssetPath(MultiLanguage.Instance.InputFiles[index].TextAsset);
             }
 
             EditorGUILayout.BeginHorizontal();
@@ -268,7 +264,7 @@ namespace Polyglot
         [MenuItem(MenuItemPath + "Download Polyglot Mastersheet", false, 30)]
         private static void DownloadMasterSheet()
         {
-            var doc = Localization.Instance.PolyglotDocument;
+            var doc = MultiLanguage.Instance.PolyglotDocument;
             DownloadGoogleSheet(doc);
 
             masterSheet = new LocalizationAsset {TextAsset = doc.TextAsset, Format = doc.Format};
@@ -277,20 +273,20 @@ namespace Polyglot
         [MenuItem(MenuItemPath + "Download Custom Sheet", true, 30)]
         private static bool ValidateDownloadCustomSheet()
         {
-            var doc = Localization.Instance.CustomDocument;
+            var doc = MultiLanguage.Instance.CustomDocument;
             return !string.IsNullOrEmpty(doc.DocsId) && !string.IsNullOrEmpty(doc.SheetId);
         }
 
         [MenuItem(MenuItemPath + "Download Custom Sheet", false, 30)]
         private static void DownloadCustomSheet()
         {
-            var doc = Localization.Instance.CustomDocument;
+            var doc = MultiLanguage.Instance.CustomDocument;
             DownloadGoogleSheet(doc);
 
             customSheet = new LocalizationAsset {TextAsset = doc.TextAsset, Format = doc.Format};
         }
 
-        private static void DownloadGoogleSheet(LocalizationDocument doc)
+        private static void DownloadGoogleSheet(Document doc)
         {
             EditorUtility.DisplayCancelableProgressBar("Download", "Downloading...", 0);
 
@@ -299,7 +295,7 @@ namespace Polyglot
             {}
         }
 
-        private static void DownloadComplete(string text, LocalizationDocument doc)
+        private static void DownloadComplete(string text, Document doc)
         {
             if (string.IsNullOrEmpty(text))
             {
@@ -338,4 +334,3 @@ namespace Polyglot
             return false;
         }
     }
-}

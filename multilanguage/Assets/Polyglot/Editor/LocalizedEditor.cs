@@ -2,8 +2,6 @@ using UnityEditor;
 using UnityEditor.AnimatedValues;
 using UnityEngine;
 
-namespace Polyglot
-{
     public abstract class LocalizedEditor<T> : Editor where T : class, ILocalize
     {
         private Vector2 scroll;
@@ -27,12 +25,12 @@ namespace Polyglot
                 if (iterator.name == propertyPath)
                 {
                     var key = iterator.stringValue;
-                    var localizedString = Localization.Get(key);
+                    var localizedString = MultiLanguage.Get(key);
                     EditorGUILayout.LabelField("Localized Text", localizedString);
 
                     if (!string.IsNullOrEmpty(key))
                     {
-                        if (!Localization.KeyExist(key))
+                        if (!MultiLanguage.KeyExist(key))
                         {
                             DrawAutoComplete(iterator);
                         }
@@ -60,7 +58,7 @@ namespace Polyglot
                 localizedStrings = LocalizationImporter.GetLanguagesContains(property.stringValue);
             }
 
-            var selectedLanguage = (int)Localization.Instance.SelectedLanguage;
+            var selectedLanguage = (int)MultiLanguage.Instance.SelectedLanguage;
 
             showAutoComplete.target = EditorGUILayout.Foldout(showAutoComplete.target, "Auto-Complete");
             if (EditorGUILayout.BeginFadeGroup(showAutoComplete.faded))
@@ -88,4 +86,3 @@ namespace Polyglot
 
         }
     }
-}

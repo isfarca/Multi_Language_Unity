@@ -1,11 +1,7 @@
 ﻿using System.Collections.Generic;
-#if UNITY_5 || UNITY_2017_1_OR_NEWER
 using JetBrains.Annotations;
-#endif
 using UnityEngine;
 
-namespace Polyglot
-{
     public abstract class LocalizedTextComponent<T> : MonoBehaviour, ILocalize where T : Component
     {
         [Tooltip("The text component to localize")]
@@ -58,7 +54,7 @@ namespace Polyglot
 #endif
         public void OnEnable()
         {
-            Localization.Instance.AddOnLocalizeEvent(this);
+            MultiLanguage.Instance.AddOnLocalizeEvent(this);
         }
 
         protected abstract void SetText(T component, string value);
@@ -73,14 +69,14 @@ namespace Polyglot
 #endif
             if (parameters != null && parameters.Count > 0)
             {
-                SetText(text, Localization.GetFormat(key, parameters.ToArray()));
+                SetText(text, MultiLanguage.GetFormat(key, parameters.ToArray()));
             }
             else
             {
-                SetText(text, Localization.Get(key));
+                SetText(text, MultiLanguage.Get(key));
             }
 
-            var direction = Localization.Instance.SelectedLanguageDirection;
+            var direction = MultiLanguage.Instance.SelectedLanguageDirection;
 
             if (text != null && !maintainTextAlignment) UpdateAlignment(text, direction);
 
@@ -112,4 +108,3 @@ namespace Polyglot
             AddParameter((object)parameter);
         }
     }
-}

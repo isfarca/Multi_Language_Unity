@@ -34,16 +34,16 @@ namespace Polyglot
 #endif
         public void Start()
         {
-            Localization.Instance.AddOnLocalizeEvent(this);
+            MultiLanguage.Instance.AddOnLocalizeEvent(this);
         }
 
         public void OnLocalize()
         {
             var flags = text.hideFlags;
             text.hideFlags = HideFlags.DontSave;
-            text.text = Localization.Get(key);
+            text.text = MultiLanguage.Get(key);
 
-            var direction = Localization.Instance.SelectedLanguageDirection;
+            var direction = MultiLanguage.Instance.SelectedLanguageDirection;
 
             if (IsOppositeDirection(text.alignment, direction))
             {

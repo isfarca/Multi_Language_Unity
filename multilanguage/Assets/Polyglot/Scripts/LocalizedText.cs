@@ -1,8 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace Polyglot
-{
     [AddComponentMenu("UI/Localized Text", 11)]
     [RequireComponent(typeof(Text))]
     public class LocalizedText : LocalizedTextComponent<Text>
@@ -59,4 +57,3 @@ namespace Polyglot
             return alignment == TextAnchor.LowerLeft || alignment == TextAnchor.MiddleLeft || alignment == TextAnchor.UpperLeft;
         }
     }
-}

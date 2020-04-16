@@ -5,8 +5,6 @@ using UnityEngine;
 using UnityEngine.Networking;
 #endif
 
-namespace Polyglot
-{
     public static class GoogleDownload
     {
         public static IEnumerator DownloadSheet(string docsId, string sheetId, Action<string> done, GoogleDriveDownloadFormat format = GoogleDriveDownloadFormat.CSV, Func<float, bool> progressbar = null)
@@ -64,4 +62,3 @@ namespace Polyglot
             done(text);
         }
     }
-}

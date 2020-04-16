@@ -1,11 +1,6 @@
-﻿#if UNITY_5
-using JetBrains.Annotations;
-#endif
-using UnityEditor;
+﻿using UnityEditor;
 using UnityEditor.AnimatedValues;
 
-namespace Polyglot
-{
 
 #if UNITY_5
     [UsedImplicitly]
@@ -55,4 +50,3 @@ namespace Polyglot
             EditorGUILayout.EndFadeGroup();
         }
     }
-}

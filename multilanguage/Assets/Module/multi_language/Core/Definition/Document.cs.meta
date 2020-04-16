@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ae3b16432c6b98d4c9861ece3c318b72
-timeCreated: 1441481785
-licenseType: Pro
+guid: 8f70cc02293e51b448717ca439d33592
 MonoImporter:
+  externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - textAsset: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -29,3 +29,9 @@
     Arabic,
     Bosnian
 }
+
+public enum LanguageDirection
+{
+    LeftToRight,
+    RightToLeft
+}

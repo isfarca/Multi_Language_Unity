@@ -15,13 +15,13 @@ namespace Polyglot
 #endif
         public void Start()
         {
-            Localization.Instance.SelectedLanguage = (Language) PlayerPrefs.GetInt(preferenceKey);
-            Localization.Instance.AddOnLocalizeEvent(this);
+            MultiLanguage.Instance.SelectedLanguage = (Language) PlayerPrefs.GetInt(preferenceKey);
+            MultiLanguage.Instance.AddOnLocalizeEvent(this);
         }
 
         public void OnLocalize()
         {
-            PlayerPrefs.SetInt(preferenceKey, (int) Localization.Instance.SelectedLanguage);
+            PlayerPrefs.SetInt(preferenceKey, (int) MultiLanguage.Instance.SelectedLanguage);
         }
     }
 }

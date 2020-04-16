@@ -1,11 +1,6 @@
-﻿#if UNITY_5
-using JetBrains.Annotations;
-#endif
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace Polyglot
-{
 #if UNITY_5_2 || UNITY_5_3 || UNITY_5_4_OR_NEWER
     [RequireComponent(typeof(Dropdown))]
 #endif
@@ -33,7 +28,7 @@ namespace Polyglot
         {
             CreateDropdown();
 
-            Localization.Instance.AddOnLocalizeEvent(this);
+            MultiLanguage.Instance.AddOnLocalizeEvent(this);
         }
 
         private void CreateDropdown()
@@ -43,7 +38,7 @@ namespace Polyglot
 
             dropdown.options.Clear();
 
-            var languageNames = Localization.Instance.SupportedLanguages;
+            var languageNames = MultiLanguage.Instance.SupportedLanguages;
 
             for (int index = 0; index < languageNames.Count; index++)
             {
@@ -52,7 +47,7 @@ namespace Polyglot
             }
 
             dropdown.value = -1;
-            dropdown.value = Localization.Instance.SelectedLanguageIndex;
+            dropdown.value = MultiLanguage.Instance.SelectedLanguageIndex;
 
             dropdown.hideFlags = flags;
         }
@@ -61,10 +56,9 @@ namespace Polyglot
         public void OnLocalize()
         {
 #if UNITY_5_2 || UNITY_5_3 || UNITY_5_4_OR_NEWER
-            dropdown.onValueChanged.RemoveListener(Localization.Instance.SelectLanguage);
-            dropdown.value = Localization.Instance.SelectedLanguageIndex;
-            dropdown.onValueChanged.AddListener(Localization.Instance.SelectLanguage);
+            dropdown.onValueChanged.RemoveListener(MultiLanguage.Instance.SelectLanguage);
+            dropdown.value = MultiLanguage.Instance.SelectedLanguageIndex;
+            dropdown.onValueChanged.AddListener(MultiLanguage.Instance.SelectLanguage);
 #endif
         }
     }
-}
