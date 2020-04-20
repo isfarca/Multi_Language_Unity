@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Polyglot
 {
-    public class SaveLanguagePreference : MonoBehaviour, ILocalize
+    public class SaveLanguagePreference : MonoBehaviour, ILanguageManager
     {
         [SerializeField]
         private string preferenceKey = "Polyglot.SelectedLanguage";

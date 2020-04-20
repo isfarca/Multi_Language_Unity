@@ -8,7 +8,7 @@ namespace Polyglot
 {
     [AddComponentMenu("Mesh/Localized TextMesh")]
     [RequireComponent(typeof(TextMesh))]
-    public class LocalizedTextMesh : MonoBehaviour, ILocalize
+    public class LocalizedTextMesh : MonoBehaviour, ILanguageManager
     {
 
         [Tooltip("The TextMesh component to localize")]

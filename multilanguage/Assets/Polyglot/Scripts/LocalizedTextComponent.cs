@@ -2,7 +2,7 @@
 using JetBrains.Annotations;
 using UnityEngine;
 
-    public abstract class LocalizedTextComponent<T> : MonoBehaviour, ILocalize where T : Component
+    public abstract class LocalizedTextComponent<T> : MonoBehaviour, ILanguageManager where T : Component
     {
         [Tooltip("The text component to localize")]
         [SerializeField]

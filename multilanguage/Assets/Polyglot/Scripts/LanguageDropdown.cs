@@ -5,7 +5,7 @@ using UnityEngine.UI;
     [RequireComponent(typeof(Dropdown))]
 #endif
     [AddComponentMenu("UI/Language Dropdown", 36)]
-    public class LanguageDropdown : MonoBehaviour, ILocalize
+    public class LanguageDropdown : MonoBehaviour, ILanguageManager
     {
 #if UNITY_5_2 || UNITY_5_3 || UNITY_5_4_OR_NEWER
         [Tooltip("The dropdown to populate with all the available languages")]

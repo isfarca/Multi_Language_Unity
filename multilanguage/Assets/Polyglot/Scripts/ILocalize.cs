@@ -1,4 +1,4 @@
-﻿public interface ILocalize
+﻿/*public interface ILocalize
     {
         void OnLocalize();
-    }
+    }*/

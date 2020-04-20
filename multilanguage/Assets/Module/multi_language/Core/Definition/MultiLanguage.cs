@@ -320,7 +320,7 @@ public class MultiLanguage : ScriptableObject
     /// Add a Localization listener to catch the event that is invoked when the selected language is changed.
     /// </summary>
     /// <param name="localize"></param>
-    public void AddOnLocalizeEvent(ILocalize localize)
+    public void AddOnLocalizeEvent(ILanguageManager localize)
     {
         Localize.RemoveListener(localize.OnLocalize);
         Localize.AddListener(localize.OnLocalize);
@@ -330,7 +330,7 @@ public class MultiLanguage : ScriptableObject
     /// Removes a Localization listener.
     /// </summary>
     /// <param name="localize"></param>
-    public void RemoveOnLocalizeEvent(ILocalize localize)
+    public void RemoveOnLocalizeEvent(ILanguageManager localize)
     {
         Localize.RemoveListener(localize.OnLocalize);
     }

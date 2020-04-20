@@ -2,7 +2,7 @@ using UnityEditor;
 using UnityEditor.AnimatedValues;
 using UnityEngine;
 
-    public abstract class LocalizedEditor<T> : Editor where T : class, ILocalize
+    public abstract class LocalizedEditor<T> : Editor where T : class, ILanguageManager
     {
         private Vector2 scroll;
         private AnimBool showAutoComplete;
