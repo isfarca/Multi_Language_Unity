@@ -290,7 +290,7 @@ using System.IO;
         {
             EditorUtility.DisplayCancelableProgressBar("Download", "Downloading...", 0);
 
-            var iterator = GoogleDownload.DownloadSheet(doc.DocsId, doc.SheetId, t => DownloadComplete(t, doc), doc.Format, DisplayDownloadProgressbar);
+            var iterator = GoogleDownloader.DownloadSheet(doc.DocsId, doc.SheetId, t => DownloadComplete(t, doc), doc.Format, DisplayDownloadProgressbar);
             while(iterator.MoveNext())
             {}
         }

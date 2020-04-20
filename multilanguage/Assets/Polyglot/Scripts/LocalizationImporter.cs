@@ -56,7 +56,7 @@ using UnityEngine.SocialPlatforms;
 
         private static IEnumerator Download(Document document, Action<string> done, Func<float, bool> progressbar = null)
         {
-            return GoogleDownload.DownloadSheet(document.DocsId, document.SheetId, done, document.Format, progressbar);
+            return GoogleDownloader.DownloadSheet(document.DocsId, document.SheetId, done, document.Format, progressbar);
         }
         
         public static IEnumerator DownloadPolyglotSheet( Func<float, bool> progressbar = null)
