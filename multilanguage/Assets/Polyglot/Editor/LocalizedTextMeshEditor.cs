@@ -10,7 +10,7 @@ namespace Polyglot
 #endif
     [CustomEditor(typeof (LocalizedTextMesh))]
     [CanEditMultipleObjects]
-    public class LocalizedTextMeshEditor : LocalizedEditor<LocalizedTextMesh>
+    public class LocalizedTextMeshEditor : LanguageManagerEditor<LocalizedTextMesh>
     {
         public override void OnInspectorGUI()
         {

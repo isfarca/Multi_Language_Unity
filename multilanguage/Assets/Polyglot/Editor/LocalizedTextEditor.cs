@@ -7,7 +7,7 @@ using UnityEditor.AnimatedValues;
 #endif
     [CustomEditor(typeof(LocalizedText), true)]
     [CanEditMultipleObjects]
-    public class LocalizedTextEditor : LocalizedEditor<LocalizedText>
+    public class LocalizedTextEditor : LanguageManagerEditor<LocalizedText>
     {
         private AnimBool showParameters;
 

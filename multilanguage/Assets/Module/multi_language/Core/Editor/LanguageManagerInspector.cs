@@ -1,10 +1,10 @@
-using System;
+﻿using System;
 using UnityEditor;
 using UnityEngine;
 using System.IO;
 
 [CustomEditor(typeof(MultiLanguage))]
-    public class LocalizationInspector : Editor
+    public class LanguageManagerInspector : Editor
     {
         private const string PathPrefs = "polyglotpath";
         private const string DefaultPolyglotPath = "Assets/Polyglot/Localization/PolyglotGameDev - Master.txt";

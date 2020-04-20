@@ -12,7 +12,7 @@ namespace Polyglot
 #endif
     [CustomEditor(typeof(LocalizedTextMeshPro))]
     [CanEditMultipleObjects]
-    public class LocalizedTextMeshProEditor : LocalizedEditor<LocalizedTextMeshPro>
+    public class LocalizedTextMeshProEditor : LanguageManagerEditor<LocalizedTextMeshPro>
     {
         private AnimBool showParameters = new AnimBool(false);
 
